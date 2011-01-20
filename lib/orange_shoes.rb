@@ -26,6 +26,12 @@ window.onload = function() {
 
   FUNCTIONS = []
 
+  PARA =<<-EOS
+  function para(str, x, y) {
+    ctx.fillText(str, x, y);
+  }
+  EOS
+
   IMAGE =<<-EOS
   function image(source, x, y, w, h) {
     var img = new Image();

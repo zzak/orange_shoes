@@ -19,7 +19,10 @@ class Shoes
       INTERVALS.push(real % [fill, left, top, width, height])
     end
   end
-
+ 
+  # lets just do a para for now :)
+  class Para < Basic; end 
+  
   class Image < Basic; end
   class ShapeBase < Basic; end
   class Oval < ShapeBase; end

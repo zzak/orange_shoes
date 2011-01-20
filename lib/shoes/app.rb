@@ -14,6 +14,22 @@ class Shoes
     attr_reader :width, :height, :interval
     attr_accessor :order
 
+    def para str, *attrs
+      args = attrs.last.class == Hash ? attrs.pop : {}
+      case attrs.length
+        when 0, 1
+        when 2; args[:left], args[:top] = attrs
+        else args[:left], args[:top] = attrs
+      end
+      args = basic_attributes args 
+      args[:str] = str 
+      
+      FUNCTIONS.push PARA unless FUNCTIONS.include? PARA 
+      args[:real] = %Q[    para("%s", %s, %s)] 
+      args[:app] = self
+      Para.new args
+    end
+
     def image name, *attrs 
       args = attrs.last.class == Hash ? attrs.pop : {}
       case attrs.length
