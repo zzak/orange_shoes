@@ -9,7 +9,12 @@ class Shoes
   def self.repaint_all_by_order app
     INTERVALS.push(MAIN % app.interval)
     app.order.each do |e|
-      INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
+      unless e.is_a?(Para) 
+        INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
+      else
+        # is a Para
+        INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.str, e.left, e.top]))
+      end
     end
     INTERVALS.push "  }"
   end
