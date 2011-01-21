@@ -1,22 +1,20 @@
-<font size=7>Sample 05</font> 
-<p>
-
 <canvas id="orangeShoes" width="600" height="500" style="border:1px solid black;"></canvas>
 
 <script type="text/javascript" language="JavaScript">
 
 window.onload = function() {
-  var canvas = document.getElementById('orangeShoes')
-  var ctx = canvas.getContext("2d")
-  var mouseX
-  var mouseY
-  canvas.onmousemove = getMousePoint
+  var canvas = document.getElementById('orangeShoes');
+  var ctx = canvas.getContext("2d");
+  var mouseX;
+  var mouseY;
+  canvas.onmousemove = getMousePoint;
   function getMousePoint(evt){
-    mouseX = evt.clientX - canvas.offsetLeft
-    mouseY = evt.clientY - canvas.offsetTop
+    mouseX = evt.clientX - canvas.offsetLeft;
+    mouseY = evt.clientY - canvas.offsetTop;
   }
   
-  function para(str, x, y) {
+  function para(str, x, y, size, face) {
+    ctx.font = size + " " + face; 
     ctx.fillText(str, x, y);
   }
   function image(source, x, y, w, h) {
@@ -27,25 +25,12 @@ window.onload = function() {
     img.src = source;
   }
 
-  setInterval(main, 400)
+  setInterval(main, 400);
   function main(){
-    ctx.clearRect(0, 0, canvas.width,canvas.height)
-    para("Hello, Orange Shoes!", 30, 50)
-    para("From Ash and Zak", 470, 470)
+    ctx.clearRect(0, 0, canvas.width,canvas.height);
+    para("Hello, Orange Shoes!", 30, 50, "20px", "serif")
+    para("From Ash and Zak", 470, 470, "12px", "serif")
     image("https://github.com/ashbb/orange_shoes/raw/master/static/oshoes-icon.png", 450, 320, 128, 128)
   }
 }
 </script>
-
-<p> 
-<font size=7>Code</font> 
-<pre> 
-# Orange Shoes sample5.rb
-require 'orange_shoes'
-
-Shoes.app interval: 400 do
-  para "Hello, Orange Shoes!", 30, 50 
-  para "From Ash and Zak", 470, 470 
-  image "https://github.com/ashbb/orange_shoes/raw/master/static/oshoes-icon.png", 450, 320, 128, 128
-end
-</pre>
