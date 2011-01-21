@@ -23,6 +23,8 @@ class Shoes
         else args[:left], args[:top], args[:size], args[:face] = attrs
       end
       args = basic_attributes args 
+      args[:size] = "10px" unless args[:size] 
+      args[:face] = "serif" unless args[:face] 
       args[:str] = str 
       
       FUNCTIONS.push PARA unless FUNCTIONS.include? PARA 
