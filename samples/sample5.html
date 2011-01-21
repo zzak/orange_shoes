@@ -1,3 +1,6 @@
+<font size=7>Sample 05</font> 
+<p>
+
 <canvas id="orangeShoes" width="600" height="500" style="border:1px solid black;"></canvas>
 
 <script type="text/javascript" language="JavaScript">
@@ -34,3 +37,16 @@ window.onload = function() {
   }
 }
 </script>
+
+<p> 
+<font size=7>Code</font> 
+<pre> 
+# Orange Shoes sample5.rb
+require 'orange_shoes'
+
+Shoes.app interval: 400 do
+  para "Hello, Orange Shoes!", "20px", "serif", 30, 50 
+  para "From Ash and Zak", "12px", "serif", 470, 470 
+  image "https://github.com/ashbb/orange_shoes/raw/master/static/oshoes-icon.png", 450, 320, 128, 128
+end
+</pre>
