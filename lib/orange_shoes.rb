@@ -2,12 +2,29 @@ Types = module Shoes; self end
 
 module Shoes
   HEADER =<<-EOS
-<canvas id="orangeShoes" width="%d" height="%d" style="border:1px solid black;"></canvas>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+</head>
+<body>
+
+<script type="text/javascript">
+  if(!(!!document.createElement("canvas").getContext)) {
+    var wrapper = document.getElementById("canvasWrapper");
+    wrapper.innerHTML = "Your browser does not appear to support Canvas";
+    return;
+  }
+</script>
+
+<div id="canvasWrapper">
+  <canvas id="orange_shoes" width="%d" height="%d" style="border:1px solid black;"></canvas>
+</div>
 
 <script type="text/javascript" language="JavaScript">
 
 window.onload = function() {
-  var canvas = document.getElementById('orangeShoes');
+  var canvas = document.getElementById('orange_shoes');
   var ctx = canvas.getContext("2d");
   var mouseX;
   var mouseY;
@@ -22,6 +39,8 @@ window.onload = function() {
   FOOTER =<<-EOS
 }
 </script>
+</body>
+</html>
   EOS
 
   FUNCTIONS = []
