@@ -13,7 +13,7 @@ class Shoes
         INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
       else
         # is a Para
-        INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.str, e.left, e.top]))
+        INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.str, e.size, e.face, e.left, e.top]))
       end
     end
     INTERVALS.push "  }"

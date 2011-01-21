@@ -19,13 +19,14 @@ class Shoes
       case attrs.length
         when 0, 1
         when 2; args[:left], args[:top] = attrs
-        else args[:left], args[:top] = attrs
+        when 3; args[:left], args[:top], args[:size] = attrs
+        else args[:left], args[:top], args[:size], args[:face] = attrs
       end
       args = basic_attributes args 
       args[:str] = str 
       
       FUNCTIONS.push PARA unless FUNCTIONS.include? PARA 
-      args[:real] = %Q[    para("%s", %s, %s)] 
+      args[:real] = %Q[    para("%s", %s, %s, "%s", "%s")] 
       args[:app] = self
       Para.new args
     end
