@@ -27,7 +27,7 @@ class Shoes
       args[:face] = "serif" unless args[:face] 
       args[:str] = str 
       
-      FUNCTIONS.push PARA unless FUNCTIONS.include? PARA 
+      #FUNCTIONS.push PARA unless FUNCTIONS.include? PARA 
       args[:real] = %Q[    para("%s", %s, %s, "%s", "%s")] 
       args[:app] = self
       Para.new args
@@ -45,7 +45,7 @@ class Shoes
       args[:height] = args[:width] if args[:height].zero?
       args[:fill] = name
 
-      FUNCTIONS.push IMAGE unless FUNCTIONS.include? IMAGE
+      #FUNCTIONS.push IMAGE unless FUNCTIONS.include? IMAGE
       args[:real] = %Q[    image("%s", %s, %s, %s, %s)] 
       args[:app] = self
       Image.new args
@@ -65,7 +65,7 @@ class Shoes
       args[:strokewidth] = ( args[:strokewidth] or strokewidth or 1 )
       args[:fill] ||= fill
 
-      FUNCTIONS.push OVAL unless FUNCTIONS.include? OVAL
+      #FUNCTIONS.push OVAL unless FUNCTIONS.include? OVAL
       args[:real] = %Q[    oval('%s', %s, %s, %s)]
       args[:app] = self
       Oval.new args
@@ -84,7 +84,7 @@ class Shoes
       args[:strokewidth] = ( args[:strokewidth] or strokewidth or 1 )
       args[:fill] ||= fill
 
-      FUNCTIONS.push RECT unless FUNCTIONS.include? RECT
+      #FUNCTIONS.push RECT unless FUNCTIONS.include? RECT
       args[:real] = %Q[    rect('%s', %s, %s, %s, %s)]
       args[:app] = self
       Rect.new args
