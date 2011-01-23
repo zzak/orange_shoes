@@ -1,6 +1,5 @@
 class Shoes
   class App
-    include Types
 
     def initialize args={}
       args[:width] ||= 600

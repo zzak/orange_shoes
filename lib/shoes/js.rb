@@ -1,6 +1,5 @@
 class Shoes
   class Js
-    include Types
 
     def initialize app, opt, text
       FUNCTIONS.push OVAL unless FUNCTIONS.include? OVAL

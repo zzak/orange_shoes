@@ -1,5 +1,4 @@
 class Shoes
-  include Types
 
   def self.app args={}, &blk
     app = App.new args

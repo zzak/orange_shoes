@@ -1,6 +1,4 @@
-Types = module Shoes; self end
-
-module Shoes
+class Shoes
   SRC_DIR = "#{File.dirname(__FILE__)}/../src" 
   STATIC_DIR = "#{File.dirname(__FILE__)}/../static" 
   APP_FILE = "#{File.basename($0)}"  
@@ -62,13 +60,10 @@ window.onload = function() {
   EOS
 end
 
-class Object
-  remove_const :Shoes
-end
-
 require_relative 'shoes/helper_methods'
 require_relative 'shoes/basic'
 require_relative 'shoes/js'
 require_relative 'shoes/main'
 require_relative 'shoes/app'
 require_relative 'shoes/colors'
+require_relative 'shoes/version'

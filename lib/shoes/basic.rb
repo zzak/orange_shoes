@@ -1,6 +1,5 @@
 class Shoes
   class Basic
-    include Types
 
     def initialize args
       args.each do |k, v|
