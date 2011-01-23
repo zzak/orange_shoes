@@ -1,4 +1,4 @@
-require '../lib/orange_shoes'
+require "./#{File.dirname(__FILE__)}/../lib/orange_shoes"
 
 Shoes.app do
   oval 100, 100, 30
