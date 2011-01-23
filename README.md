@@ -13,7 +13,7 @@ Usage
 -----
 
 - Run your Orange Shoes app written in Ruby, i.e. `ruby sample.rb`
-- Orange Shoes will output the html file: `orange_shoes_output.html`
+- Orange Shoes will output the html file: `output/sample.html`
 - You can open the html file with your browser, i.e. FireFox
 
 
