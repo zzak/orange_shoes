@@ -9,13 +9,12 @@ class Shoes
     repaint_all_by_order app
 
     # make output dirs
-    `mkdir ./output` unless Dir.exists?('./output')
-    `mkdir ./output/js` unless Dir.exists?('./output/js') 
+    Dir.mkdir("#{APP_PATH}/output") unless Dir.exists?("#{APP_PATH}/output")
+    Dir.mkdir("#{APP_PATH}/output/js") unless Dir.exists?("#{APP_PATH}/output/js") 
      
-    `cp #{SRC_DIR}/*.js ./output/js/.` 
-    # $0 is the name of the input file
-    output = $0.gsub('.rb', '.html')
-    open "./output/#{output}", 'w' do |f|
+    `cp #{SRC_DIR}/*.js "#{APP_PATH}/output/js/."` 
+    output = APP_FILE.gsub('.rb', '.html')
+    open "#{APP_PATH}/output/#{output}", 'w' do |f|
       f.puts HEADER % [app.width, app.height], 
         FUNCTIONS, VARS, INTERVALS, FOOTER
     end

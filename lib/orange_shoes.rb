@@ -2,6 +2,8 @@ Types = module Shoes; self end
 
 module Shoes
   SRC_DIR = "#{File.dirname(__FILE__)}/../src" 
+  APP_FILE = "#{File.basename($0)}"  
+  APP_PATH = "#{File.dirname($0)}"  
   
   HEADER =<<-EOS
 <!DOCTYPE html>
