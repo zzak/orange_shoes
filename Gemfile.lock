@@ -2,12 +2,10 @@ PATH
   remote: .
   specs:
     orange_shoes (0.0.0)
-      thor
 
 GEM
   remote: http://rubygems.org/
   specs:
-    thor (0.14.6)
 
 PLATFORMS
   ruby
