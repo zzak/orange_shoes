@@ -2,6 +2,7 @@ Types = module Shoes; self end
 
 module Shoes
   SRC_DIR = "#{File.dirname(__FILE__)}/../src" 
+  STATIC_DIR = "#{File.dirname(__FILE__)}/../static" 
   APP_FILE = "#{File.basename($0)}"  
   APP_PATH = "#{File.dirname($0)}"  
   
@@ -10,6 +11,7 @@ module Shoes
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <link rel="shortcut icon" href="static/favicon.ico" />
 </head>
 <body>
 
