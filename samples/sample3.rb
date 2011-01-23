@@ -1,4 +1,4 @@
-require "./#{File.dirname(__FILE__)}/../lib/orange_shoes"
+require "orange_shoes"
 
 Shoes.app width: 400, height: 400, interval: 20 do
   js text =<<-EOS, :vars

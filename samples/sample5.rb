@@ -1,4 +1,4 @@
-require "./#{File.dirname(__FILE__)}/../lib/orange_shoes"
+require "orange_shoes"
 
 Shoes.app interval: 400 do
   para "Hello, Orange Shoes!", 30, 50, "20px", "serif"
