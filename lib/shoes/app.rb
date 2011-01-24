@@ -4,7 +4,7 @@ class Shoes
     def initialize args={}
       args[:width] ||= 600
       args[:height] ||= 500
-      args[:interval] ||= 10
+      args[:interval] ||= 0
       @width, @height, @interval = args[:width], args[:height], args[:interval]
       @order = []
       @fill = @stroke = 'black'
