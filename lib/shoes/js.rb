@@ -2,9 +2,6 @@ class Shoes
   class Js
 
     def initialize app, opt, text
-      FUNCTIONS.push OVAL unless FUNCTIONS.include? OVAL
-      FUNCTIONS.push RECT unless FUNCTIONS.include? RECT
-
       case opt
         when :main
           app.order << self
