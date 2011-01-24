@@ -15,8 +15,8 @@ Shoes.app width: 400, height: 400, interval: 20 do
   js test =<<-EOS
     if (ball_top + 10 < 0 || ball_top > 400) {
       msg = ball_top > 400 ? 'Computer WIN!' : '      You WIN!'
-      ctx.font = "40pt Calibri"
-      ctx.fillText(msg, 30, 200)
+      context.font = "40pt Calibri"
+      context.fillText(msg, 30, 200)
     } else {
       nx = ball_left + vx
       ny = ball_top + vy
