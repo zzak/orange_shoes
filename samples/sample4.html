@@ -1,34 +1,37 @@
-<font size=7>Sample 04</font> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="static/favicon.ico" />
+</head>
+<body>
+
+<font size=7>Sample 04</font>
 <p>
 
-<canvas id="orangeShoes" width="600" height="500" style="border:1px solid black;"></canvas>
+<script type="text/javascript">
+  if(!(!!document.createElement("canvas").getContext)) {
+    var wrapper = document.getElementById("canvasWrapper");
+    wrapper.innerHTML = "Your browser does not appear to support Canvas";
+    return;
+  }
+</script>
+
+<div id="canvasWrapper">
+  <canvas id="orange_shoes" width="600" height="500" style="border:1px solid black;"></canvas>
+</div>
+
+<script type="text/javascript" language="JavaScript" src="js/orange_shoes.js"></script>
 
 <script type="text/javascript" language="JavaScript">
 
 window.onload = function() {
-  var canvas = document.getElementById('orangeShoes')
-  var ctx = canvas.getContext("2d")
-  var mouseX
-  var mouseY
-  canvas.onmousemove = getMousePoint
-  function getMousePoint(evt){
-    mouseX = evt.clientX - canvas.offsetLeft
-    mouseY = evt.clientY - canvas.offsetTop
-  }
-  
-  function image(source, x, y, w, h) {
-    var img = new Image();
-    img.onload = function() {
-      ctx.drawImage(img,x,y,w,h); 
-    } 
-    img.src = source;
-  }
-
-  setInterval(main, 400)
+ 
   function main(){
-    ctx.clearRect(0, 0, canvas.width,canvas.height)
-    image("https://github.com/ashbb/orange_shoes/raw/master/static/oshoes-icon.png", 450, 350, 128, 128)
+    context.clearRect(0, 0, canvas.width,canvas.height);
+    image("static/oshoes-icon.png", 450, 350, 128, 128)
   }
+  main();
 }
 </script>
 
@@ -38,7 +41,10 @@ window.onload = function() {
 # Orange Shoes sample4.rb
 require 'orange_shoes'
 
-Shoes.app interval: 400 do
-  image "https://github.com/ashbb/orange_shoes/raw/master/static/oshoes-icon.png", 450, 350, 128, 128
+Shoes.app do
+  image "static/oshoes-icon.png", 450, 350, 128, 128
 end
 </pre>
+
+</body>
+</html>

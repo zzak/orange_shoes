@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<font size=7>Sample 05</font>
+<font size=7>Sample 01</font> 
 <p>
 
 <script type="text/javascript">
@@ -29,9 +29,8 @@ window.onload = function() {
  
   function main(){
     context.clearRect(0, 0, canvas.width,canvas.height);
-    para("Hello, Orange Shoes!", 30, 50, "20px", "serif")
-    para("From Ash and Zak", 470, 470, "12px", "serif")
-    image("static/oshoes-icon.png", 450, 320, 128, 128)
+    oval('black', 100, 100, 60)
+    oval('black', 300, 300, 20)
   }
   main();
 }
@@ -40,13 +39,12 @@ window.onload = function() {
 <p> 
 <font size=7>Code</font> 
 <pre> 
-# Orange Shoes sample5.rb
+# Orange Shoes sample1.rb
 require 'orange_shoes'
-
+ 
 Shoes.app do
-  para "Hello, Orange Shoes!", 30, 50, "20px", "serif"
-  para "From Ash and Zak", 470, 470, "12px", "serif"
-  image "static/oshoes-icon.png", 450, 350, 128, 128
+  oval 100, 100, 30
+  oval 300, 300, 20, 20
 end
 </pre>
 

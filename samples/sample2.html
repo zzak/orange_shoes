@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<font size=7>Sample 05</font>
+<font size=7>Sample 02</font>
 <p>
 
 <script type="text/javascript">
@@ -27,12 +27,20 @@
 
 window.onload = function() {
  
+  i = 0;
+  function animate(){
+    i += 1;
+  }
+
   function main(){
     context.clearRect(0, 0, canvas.width,canvas.height);
-    para("Hello, Orange Shoes!", 30, 50, "20px", "serif")
-    para("From Ash and Zak", 470, 470, "12px", "serif")
-    image("static/oshoes-icon.png", 450, 320, 128, 128)
+    oval('black', i, i*2, 20)
+    oval('black', i*3, 300-i*2, 10)
+    oval('black', i, i*2, 20)
+    oval('black', i*3, 300-i*2, 10)
   }
+  setInterval(animate, 27);
+  setInterval(main, 10);
   main();
 }
 </script>
@@ -40,13 +48,16 @@ window.onload = function() {
 <p> 
 <font size=7>Code</font> 
 <pre> 
-# Orange Shoes sample5.rb
+# Orange Shoes sample2.rb
 require 'orange_shoes'
-
+ 
 Shoes.app do
-  para "Hello, Orange Shoes!", 30, 50, "20px", "serif"
-  para "From Ash and Zak", 470, 470, "12px", "serif"
-  image "static/oshoes-icon.png", 450, 350, 128, 128
+  o1 = oval 0, 0, 10
+  o2 = oval 0, 300, 10, 10
+  animate 36 do |i|
+    o1.move 'i', 'i*2'
+    o2.move 'i*3', '300-i*2'
+  end
 end
 </pre>
 
