@@ -7,13 +7,17 @@ class Shoes
   end
 
   def self.repaint_all_by_order app
-    INTERVALS.push(MAIN % app.interval)
+    FUNCTIONS.push(MAIN)
+    # call `main()` every `app.interval` 
+    CALLS.push(SET_CALL % 'main')
     app.order.each do |e|
-      unless e.is_a?(Para) 
-        INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
-      else
+      if e.is_a?(Para) 
         # is a Para
-        INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.str, e.left, e.top, e.size, e.face]))
+        FUNCTIONS.push(e.is_a?(Js) ? e.real : (e.real % [e.str, e.left, e.top, e.size, e.face]))
+      elsif e.is_a?(Image)
+        FUNCTIONS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
+      else
+        INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
       end
     end
     INTERVALS.push "  }"

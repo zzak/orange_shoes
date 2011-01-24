@@ -41,19 +41,24 @@ window.onload = function() {
   EOS
 
   FUNCTIONS = []
- 
   VARS = []
   INTERVALS = []
-  
-  MAIN =<<-EOS
+  CALLS = [] 
 
-  setInterval(main, %d);
+  SET_INTERVAL =<<-EOS
+  setInterval(%s, %s);
+  EOS
+
+  SET_CALL =<<-EOS
+  %s();
+  EOS
+
+  MAIN =<<-EOS
   function main(){
-    ctx.clearRect(0, 0, canvas.width,canvas.height);
+    context.clearRect(0, 0, canvas.width,canvas.height);
   EOS
   
   ANIMATE =<<-EOS
-  setInterval(animate, %d)
   i = 0;
   function animate(){
     i += 1;

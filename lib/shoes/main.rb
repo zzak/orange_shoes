@@ -17,7 +17,7 @@ class Shoes
     output = APP_FILE.gsub('.rb', '.html')
     open "#{APP_PATH}/output/#{output}", 'w' do |f|
       f.puts HEADER % [app.width, app.height], 
-        FUNCTIONS, VARS, INTERVALS, FOOTER
+        VARS, FUNCTIONS, INTERVALS, CALLS, FOOTER
     end
   end
 end

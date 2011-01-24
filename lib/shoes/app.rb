@@ -95,9 +95,11 @@ class Shoes
     
     def animate n=10, &blk
       n = 1000 / n
-      INTERVALS.push(ANIMATE % n)
+      CALLS.push(SET_INTERVAL % ['animate', n])
+      CALLS.push(SET_INTERVAL % ['main', self.interval])
+      FUNCTIONS.push(ANIMATE % n) 
       instance_eval &blk
-      INTERVALS.push "  }\n\n"
+      FUNCTIONS.push "  }\n\n"
     end
     
     def js text, opt = :main
