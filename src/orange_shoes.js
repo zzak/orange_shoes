@@ -10,8 +10,8 @@
    
   canvas = document.getElementById('orange_shoes');
   context = canvas.getContext("2d");
-  var mouseX;
-  var mouseY;
+  mouseX = 0;
+  mouseY = 0;
   canvas.onmousemove = getMousePoint;
   function getMousePoint(evt){
     mouseX = evt.clientX - canvas.offsetLeft;
