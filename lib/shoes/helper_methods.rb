@@ -8,7 +8,9 @@ class Shoes
 
   def self.repaint_all_by_order app
     FUNCTIONS.push(MAIN)
-    # call `main()` every `app.interval` 
+    if app.interval > 0
+      CALLS.push(SET_INTERVAL % ['main', app.interval])
+    end
     CALLS.push(SET_CALL % 'main')
     app.order.each do |e|
       if e.is_a?(Para) 
