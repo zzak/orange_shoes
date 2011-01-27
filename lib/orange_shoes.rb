@@ -13,28 +13,19 @@ class Shoes
 </head>
 <body>
 
-<script type="text/javascript">
-  if(!(!!document.createElement("canvas").getContext)) {
-    var wrapper = document.getElementById("canvasWrapper");
-    wrapper.innerHTML = "Your browser does not appear to support Canvas";
-    return;
-  }
-</script>
-
 <div id="canvasWrapper">
   <canvas id="orange_shoes" width="%d" height="%d" style="border:1px solid black;"></canvas>
 </div>
 
 <script type="text/javascript" language="JavaScript" src="js/orange_shoes.js"></script>
-
 <script type="text/javascript" language="JavaScript">
-
-window.onload = function() {
- 
+  window.onload = function() {
   EOS
-
+##   ##
+# ._. #
+##   ##
   FOOTER =<<-EOS
-}
+  }
 </script>
 </body>
 </html>
@@ -45,13 +36,8 @@ window.onload = function() {
   INTERVALS = []
   CALLS = [] 
 
-  SET_INTERVAL =<<-EOS
-  setInterval(%s, %s);
-  EOS
-
-  SET_CALL =<<-EOS
-  %s();
-  EOS
+  SET_INTERVAL = "  setInterval(%s, %s);"
+  SET_CALL = "  %s();"
 
   MAIN =<<-EOS
   function main(){
