@@ -7,13 +7,16 @@ class Shoes
 
     repaint_all_by_order app
 
-    # make output dirs
-    Dir.mkdir("#{APP_PATH}/output") unless Dir.exists?("#{APP_PATH}/output")
-    Dir.mkdir("#{APP_PATH}/output/js") unless Dir.exists?("#{APP_PATH}/output/js") 
-    Dir.mkdir("#{APP_PATH}/output/static") unless Dir.exists?("#{APP_PATH}/output/static") 
-     
-    `cp #{SRC_DIR}/*.js "#{APP_PATH}/output/js/."` 
-    `cp #{STATIC_DIR}/* "#{APP_PATH}/output/static/."` 
+    make_output_dirs app
+  end 
+    
+  def self.make_output_dirs app
+    require 'fileutils' 
+    FileUtils.mkdir_p "#{APP_PATH}/output/js"
+    FileUtils.mkdir_p "#{APP_PATH}/output/static"
+    FileUtils.cp_r "#{SRC_DIR}/.", "#{APP_PATH}/output/js/." 
+    FileUtils.cp_r "#{STATIC_DIR}/.", "#{APP_PATH}/output/static/." 
+    
     output = APP_FILE.gsub('.rb', '.html')
     open "#{APP_PATH}/output/#{output}", 'w' do |f|
       f.puts HEADER % [app.width, app.height], 
