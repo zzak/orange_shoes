@@ -15,9 +15,9 @@ Shoes.app width: 400, height: 400, interval: 20 do
   js test =<<-EOS
     if (ball_top + 10 < 0 || ball_top > 400) {
       if(ball_top > 400) {
-        para("Computer WIN!", 30, 200, "40pt", "Calibri");
+        text("Computer WIN!", 30, 200, "40pt", "Calibri");
       } else {
-        para("You WIN!", 30, 200, "40pt", "Calibri");
+        text("You WIN!", 30, 200, "40pt", "Calibri");
       }
     } else {
       nx = ball_left + vx
