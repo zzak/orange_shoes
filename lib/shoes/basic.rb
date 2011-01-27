@@ -18,10 +18,23 @@ class Shoes
       INTERVALS.push(real % [fill, left, top, width, height])
     end
   end
- 
-  # lets just do a para for now :)
-  class Para < Basic; end 
-  
+
+  class TextBlock < Basic
+    attr_accessor :text, :size, :face 
+    def initialize args
+      args[:real] = %Q[    text("%s", %s, %s, "%s", "%s")] 
+      super 
+    end
+  end
+  class Banner < TextBlock; end
+  class Title < TextBlock; end
+  class Subtitle < TextBlock; end
+  class Tagline < TextBlock; end
+  class Caption < TextBlock; end
+  class Para < TextBlock; end
+  class Inscription < TextBlock; end
+
+
   class Image < Basic; end
   class ShapeBase < Basic; end
   class Oval < ShapeBase; end

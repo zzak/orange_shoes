@@ -13,24 +13,28 @@ class Shoes
     attr_reader :width, :height, :interval
     attr_accessor :order
 
-    def para str, *attrs
-      args = attrs.last.class == Hash ? attrs.pop : {}
-      case attrs.length
-        when 0, 1
-        when 2; args[:left], args[:top] = attrs
-        when 3; args[:left], args[:top], args[:size] = attrs
-        else args[:left], args[:top], args[:size], args[:face] = attrs
+    def textblock klass, font_size, *msg
+      args = msg.last.class == Hash ? msg.pop : {}
+      case msg.length
+        when 0, 1; args[:str] = msg
+        when 2; args[:str], args[:left] = msg 
+        when 3; args[:str], args[:left], args[:top] = msg 
+        else args[:str], args[:left], args[:top], args[:face] = msg 
       end
       args = basic_attributes args 
-      args[:size] = "10px" unless args[:size] 
+      args[:size] = font_size
       args[:face] = "serif" unless args[:face] 
-      args[:str] = str 
-      
-      #FUNCTIONS.push PARA unless FUNCTIONS.include? PARA 
-      args[:real] = %Q[    para("%s", %s, %s, "%s", "%s")] 
       args[:app] = self
-      Para.new args
+      klass.new args 
     end
+
+    def banner *msg; textblock Banner, "48px", *msg; end
+    def title *msg; textblock Title, "34px", *msg; end
+    def subtitle *msg; textblock Subtitle, "26px", *msg; end
+    def tagline *msg; textblock Tagline, "18px", *msg; end
+    def caption *msg; textblock Caption, "14px", *msg; end
+    def para *msg; textblock Para, "12px", *msg; end
+    def inscription *msg; textblock Inscription, "10px", *msg; end
 
     def image name, *attrs 
       args = attrs.last.class == Hash ? attrs.pop : {}
