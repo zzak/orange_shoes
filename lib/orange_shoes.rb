@@ -14,7 +14,7 @@ class Shoes
 <body>
 
 <div id="canvasWrapper">
-  <canvas id="orange_shoes" width="%d" height="%d" style="border:1px solid black;"></canvas>
+  <canvas id="orange_shoes" width="%d" height="%d"></canvas>
 </div>
 
 <script type="text/javascript" language="JavaScript" src="js/orange_shoes.js"></script>
@@ -41,7 +41,6 @@ class Shoes
 
   MAIN =<<-EOS
   function main(){
-    context.clearRect(0, 0, canvas.width,canvas.height);
   EOS
   
   ANIMATE =<<-EOS
