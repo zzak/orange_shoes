@@ -19,10 +19,20 @@ class Shoes
     end
   end
 
+  class Background < Basic
+    attr_accessor :fill, :stroke
+    def initialize args
+      args[:real] =<<-EOS
+      background("#{args[:fill]}", "#{args[:stroke]}");
+      EOS
+      super 
+    end
+  end
+
   class TextBlock < Basic
     attr_accessor :text, :size, :face 
     def initialize args
-      args[:real] = %Q[    text("%s", %s, %s, "%s", "%s")] 
+      args[:real] = %Q[    text("%s", %s, %s, "%s", "%s");] 
       super 
     end
   end
@@ -34,8 +44,8 @@ class Shoes
   class Para < TextBlock; end
   class Inscription < TextBlock; end
 
-
   class Image < Basic; end
+  
   class ShapeBase < Basic; end
   class Oval < ShapeBase; end
   class Rect < ShapeBase; end

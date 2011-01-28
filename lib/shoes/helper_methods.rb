@@ -17,6 +17,8 @@ class Shoes
         FUNCTIONS.push(e.is_a?(Js) ? e.real : (e.real % [e.str, e.left, e.top, e.size, e.face]))
       elsif e.is_a?(Image)
         FUNCTIONS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
+      elsif e.is_a?(Background)
+        FUNCTIONS.push(e.real)
       else
         INTERVALS.push(e.is_a?(Js) ? e.real : (e.real % [e.fill, e.left, e.top, e.width, e.height]))
       end

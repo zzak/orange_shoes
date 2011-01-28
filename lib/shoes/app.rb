@@ -7,11 +7,23 @@ class Shoes
       args[:interval] ||= 0
       @width, @height, @interval = args[:width], args[:height], args[:interval]
       @order = []
-      @fill = @stroke = 'black'
     end
     
     attr_reader :width, :height, :interval
     attr_accessor :order
+
+    def background *attrs
+      args = attrs.last.class == Hash ? attrs.pop : {}
+      case attrs.length
+        when 1; args[:fill] = attrs
+        when 2; args[:fill], args[:stroke] = attrs
+        else; args[:fill], args[:stroke] = attrs
+      end
+      args[:fill] ||= 'white'
+      args[:stroke] ||= 'black'
+      args[:app] = self
+      Background.new args
+    end
 
     def textblock klass, font_size, *msg
       args = msg.last.class == Hash ? msg.pop : {}
@@ -47,8 +59,6 @@ class Shoes
       args = basic_attributes args 
       args[:height] = args[:width] if args[:height].zero?
       args[:fill] = name
-
-      #FUNCTIONS.push IMAGE unless FUNCTIONS.include? IMAGE
       args[:real] = %Q[    image("%s", %s, %s, %s, %s)] 
       args[:app] = self
       Image.new args
@@ -67,8 +77,6 @@ class Shoes
       args[:height] = args[:width] if args[:height].zero?
       args[:strokewidth] = ( args[:strokewidth] or strokewidth or 1 )
       args[:fill] ||= fill
-
-      #FUNCTIONS.push OVAL unless FUNCTIONS.include? OVAL
       args[:real] = %Q[    oval('%s', %s, %s, %s)]
       args[:app] = self
       Oval.new args
@@ -86,15 +94,9 @@ class Shoes
       args[:height] = args[:width] unless args[:height]
       args[:strokewidth] = ( args[:strokewidth] or strokewidth or 1 )
       args[:fill] ||= fill
-
-      #FUNCTIONS.push RECT unless FUNCTIONS.include? RECT
       args[:real] = %Q[    rect('%s', %s, %s, %s, %s)]
       args[:app] = self
       Rect.new args
-    end
-
-    %w[fill stroke strokewidth].each do |name|
-      eval "def #{name} #{name}=nil; #{name} ? @#{name}=#{name} : @#{name} end"
     end
     
     def animate n=10, &blk
