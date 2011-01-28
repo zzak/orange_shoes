@@ -9,28 +9,17 @@
 <font size=7>Sample 05</font>
 <p>
 
-<script type="text/javascript">
-  if(!(!!document.createElement("canvas").getContext)) {
-    var wrapper = document.getElementById("canvasWrapper");
-    wrapper.innerHTML = "Your browser does not appear to support Canvas";
-    return;
-  }
-</script>
-
 <div id="canvasWrapper">
-  <canvas id="orange_shoes" width="600" height="500" style="border:1px solid black;"></canvas>
+  <canvas id="orange_shoes" width="600" height="500" style="border: 1px solid black;"></canvas>
 </div>
 
 <script type="text/javascript" language="JavaScript" src="js/orange_shoes.js"></script>
 
 <script type="text/javascript" language="JavaScript">
-
 window.onload = function() {
- 
   function main(){
-    context.clearRect(0, 0, canvas.width,canvas.height);
-    para("Hello, Orange Shoes!", 30, 50, "20px", "serif")
-    para("From Ash and Zak", 470, 470, "12px", "serif")
+    text("Hello, Orange Shoes!", 30, 50, "20px", "serif")
+    text("From Ash and Zak", 470, 470, "12px", "serif")
     image("static/oshoes-icon.png", 450, 320, 128, 128)
   }
   main();
@@ -44,8 +33,8 @@ window.onload = function() {
 require 'orange_shoes'
 
 Shoes.app do
-  para "Hello, Orange Shoes!", 30, 50, "20px", "serif"
-  para "From Ash and Zak", 470, 470, "12px", "serif"
+  tagline "Hello, Orange Shoes!", 30, 50
+  para "From Ash and Zak", 470, 470
   image "static/oshoes-icon.png", 450, 350, 128, 128
 end
 </pre>

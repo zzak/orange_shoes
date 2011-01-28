@@ -9,14 +9,6 @@
 <font size=7>Sample 03</font>
 <p>
 
-<script type="text/javascript">
-  if(!(!!document.createElement("canvas").getContext)) {
-    var wrapper = document.getElementById("canvasWrapper");
-    wrapper.innerHTML = "Your browser does not appear to support Canvas";
-    return;
-  }
-</script>
-
 <div id="canvasWrapper">
   <canvas id="orange_shoes" width="400" height="400" style="border:1px solid black;"></canvas>
 </div>
@@ -39,9 +31,9 @@ window.onload = function() {
     context.clearRect(0, 0, canvas.width,canvas.height);
         if (ball_top + 10 < 0 || ball_top > 400) {
       if(ball_top > 400) {
-        para("Computer WIN!", 30, 200, "40pt", "Calibri");
+        text("Computer WIN!", 30, 200, "40pt", "Calibri");
       } else {
-        para("You WIN!", 30, 200, "40pt", "Calibri");
+        text("You WIN!", 30, 200, "40pt", "Calibri");
       }
     } else {
       nx = ball_left + vx
@@ -95,9 +87,9 @@ Shoes.app width: 400, height: 400, interval: 20 do
   js test =<<-EOS
     if (ball_top + 10 < 0 || ball_top > 400) {
       if(ball_top > 400) {
-        para("Computer WIN!", 30, 200, "40pt", "Calibri");
+        text("Computer WIN!", 30, 200, "40pt", "Calibri");
       } else {
-        para("You WIN!", 30, 200, "40pt", "Calibri");
+        text("You WIN!", 30, 200, "40pt", "Calibri");
       }
     } else {
       nx = ball_left + vx
