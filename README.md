@@ -25,6 +25,7 @@ Samples
 - [sample03](http://zacharyscott.net/orange_shoes/samples/sample3.html) : Pong Game
 - [sample04](http://zacharyscott.net/orange_shoes/samples/sample4.html) : Image Sample
 - [sample05](http://zacharyscott.net/orange_shoes/samples/sample5.html) : First try at Text, with Para 
+- [sample06](http://zacharyscott.net/orange_shoes/samples/sample6.html) : Sample to try shoes background 
 
 Note
 ----
