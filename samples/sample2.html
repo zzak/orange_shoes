@@ -9,14 +9,6 @@
 <font size=7>Sample 02</font>
 <p>
 
-<script type="text/javascript">
-  if(!(!!document.createElement("canvas").getContext)) {
-    var wrapper = document.getElementById("canvasWrapper");
-    wrapper.innerHTML = "Your browser does not appear to support Canvas";
-    return;
-  }
-</script>
-
 <div id="canvasWrapper">
   <canvas id="orange_shoes" width="600" height="500" style="border:1px solid black;"></canvas>
 </div>
@@ -26,12 +18,10 @@
 <script type="text/javascript" language="JavaScript">
 
 window.onload = function() {
- 
   i = 0;
   function animate(){
     i += 1;
   }
-
   function main(){
     context.clearRect(0, 0, canvas.width,canvas.height);
     oval('black', i, i*2, 20)
