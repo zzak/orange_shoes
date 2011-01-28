@@ -1,4 +1,10 @@
 (function() {
+  if(!(!!document.createElement("canvas").getContext)) {
+    var wrapper = document.getElementById("canvasWrapper");
+    wrapper.innerHTML = "Your browser does not appear to support Canvas";
+    return;
+  }
+  
   window.SHOES = function() { 
     this.VERSION = '0.0.0';
     this.RELEASE = 'WalkAbout';
@@ -17,8 +23,15 @@
     mouseX = evt.clientX - canvas.offsetLeft;
     mouseY = evt.clientY - canvas.offsetTop;
   }
-   
-  para = function (str, x, y, size, face) {
+
+  background = function (color, stroke) {
+    context.fillStyle = color;
+    context.strokeStyle = stroke;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.strokeRect(0, 0, canvas.width, canvas.height);
+  }
+
+  text = function (str, x, y, size, face) {
     context.font = size + " " + face; 
     context.fillText(str, x, y);
   }
