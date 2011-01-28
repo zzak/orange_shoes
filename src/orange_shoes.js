@@ -23,7 +23,14 @@
     mouseX = evt.clientX - canvas.offsetLeft;
     mouseY = evt.clientY - canvas.offsetTop;
   }
-   
+
+  background = function (color, stroke) {
+    context.fillStyle = color;
+    context.strokeStyle = stroke;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.strokeRect(0, 0, canvas.width, canvas.height);
+  }
+
   text = function (str, x, y, size, face) {
     context.font = size + " " + face; 
     context.fillText(str, x, y);
