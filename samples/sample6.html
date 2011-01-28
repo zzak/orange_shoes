@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="static/favicon.ico" />
+</head>
+<body>
+
+<font size=7>Sample 06</font>
+<p>
+
+<div id="canvasWrapper">
+  <canvas id="orange_shoes" width="600" height="500"></canvas>
+</div>
+
+<script type="text/javascript" language="JavaScript" src="js/orange_shoes.js"></script>
+<script type="text/javascript" language="JavaScript">
+  window.onload = function() {
+  colorful = ["#FF0000", "#FF0033", "#FF3300", "#FF3333", "#FF6600", "#FF6633", "#FF9900", "#FF9933", "#FFCC00", "#FFCC33", "#FFFF00", "#FFFF33"];
+  function main(){
+      randcolor = Math.floor(Math.random()*colorful.length);
+  background(colorful[randcolor], 'black');
+  }
+  setInterval(main, 400);
+  main();
+  }
+</script>
+
+<p> 
+<font size=7>Code</font> 
+<pre> 
+# Orange Shoes sample6.rb
+require 'orange_shoes'
+
+Shoes.app interval: 400 do
+  js colorful =<<-EOS, :vars
+  colorful = ["#FF0000", "#FF0033", "#FF3300", "#FF3333", "#FF6600", "#FF6633", "#FF9900", "#FF9933", "#FFCC00", "#FFCC33", "#FFFF00", "#FFFF33"];
+  EOS
+ 
+  js colorize =<<-EOS
+  randcolor = Math.floor(Math.random()*colorful.length);
+  background(colorful[randcolor], 'black');
+  EOS
+end
+</pre>
+
+</body>
+</html>
